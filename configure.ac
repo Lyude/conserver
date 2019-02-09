@@ -111,12 +111,12 @@ AC_CHECK_FUNCS([ \
   unlockpt \
 ])
 
-AC_SEARCH_LIBS([openpty], [util], [UTIL_LIBS=""], [UTIL_LIBS="-lutil"])
+AC_SEARCH_LIBS([openpty], [util], [UTIL_LIBS="-lutil"], [UTIL_LIBS=""])
 AS_IF([test "x$ac_cv_search_openpty" != "xno"],
   [AC_DEFINE([HAVE_OPENPTY], [1], [Defined if openpty exists])])
 AC_SUBST([UTIL_LIBS])
 
-AC_SEARCH_LIBS([setproctitle], [bsd], [BSD_LIBS=""], [BSD_LIBS="-lbsd"])
+AC_SEARCH_LIBS([setproctitle], [bsd], [BSD_LIBS="-lbsd"], [BSD_LIBS=""])
 AS_IF([test "x$ac_cv_search_setproctitle" != "xno"],
   [AC_DEFINE([HAVE_SETPROCTITLE], [1], [Defined if setproctitle exists])])
 AC_SUBST([BSD_LIBS])
