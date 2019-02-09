@@ -1,0 +1,12 @@
+# To use this config with your editor, follow the instructions at:
+# http://editorconfig.org
+
+root = true
+
+[*.{c,h}]
+indent_style = space
+indent_size = 4
+
+[configure.ac]
+indent_style = space
+indent_size = 2
