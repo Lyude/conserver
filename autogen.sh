@@ -1,5 +1,13 @@
 #!/bin/sh
 
-cd "$(dirname "$0")" || exit $?
+orig_dir="$(pwd)"
+src_dir="$(dirname "$0")"
 
-exec autoreconf --force --install --verbose
+cd "$src_dir" || exit $?
+
+autoreconf --force --install --verbose || exit $?
+
+if test -z "$NOCONFIGURE"; then
+	cd "$orig_dir" || exit $?
+	"$src_dir"/configure "$@" || exit $?
+fi
